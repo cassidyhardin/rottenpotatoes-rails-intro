@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-<style> 
-.hilite {
-	color:;
+table#movie a.hilite {
+	background-color: yellow;
 }

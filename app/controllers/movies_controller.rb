@@ -17,9 +17,9 @@ class MoviesController < ApplicationController
     elsif session[:sort]
       sorting = session[:sort]
     end 
-    case 
+    case sorting
     when "title"
-      Movie.order(:title)
+      Movie.order(:title) 'hilite'
     when "release_date"
       Movie.order(:release_date)
     end 
