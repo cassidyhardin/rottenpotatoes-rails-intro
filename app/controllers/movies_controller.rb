@@ -13,22 +13,23 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = ["G", "PG", "PG-13", "R"]
     @movies = Movie.all
-    @sorting = params[:sort]
-    @rate = params[:ratings]
+    @sorting = params[:sort] || session[:sort]
+    @rate = params[:ratings] || session[:ratings]
     case @sorting
     when "title"
       @sorted = :title
     when "release_date"
       @sorted = :release_date
     end 
-
     if @rate.nil?
-      @rate = @all_ratings
+      @ratekeys = @all_ratings
     else 
-      @rate = @rate.keys
+      @ratekeys = @rate.keys
     end 
+    @movies = Movie.where(rating: @ratekeys).order( @sorted)
     flash.keep
-    @movies = Movie.where(rating: @rate).order( @sorted)
+    session[:sort] = @sorted
+    session[:ratings] = @rate
   end
 
   def new
