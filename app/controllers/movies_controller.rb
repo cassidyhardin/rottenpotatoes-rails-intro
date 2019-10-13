@@ -12,7 +12,6 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = ["G", "PG", "PG-13", "R"]
-    @movies = Movie.all
     @sorting = params[:sort] || session[:sort]
     @rate = params[:ratings] || session[:ratings]
     case @sorting
