@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :movies
+
+  get 'movies'   
+
   
   # Example resource route with options:
   #   resources :products do
