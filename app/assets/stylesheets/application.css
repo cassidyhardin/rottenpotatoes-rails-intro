@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-tables#movies th.hilite {
+table th.hilite {
 	background-color: yellow;
-
 }
